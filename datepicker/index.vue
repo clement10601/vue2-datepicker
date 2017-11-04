@@ -1,6 +1,6 @@
 <template>
   <div class="datepicker"
-       :style="{'width': width + 'px','min-width':range ? (type === 'datetime' ? '320px' : '210px') : '140px'}"
+       :style="{'width': width,'min-width':range ? (type === 'datetime' ? '320px' : '210px') : '140px'}"
        v-clickoutside="closePopup">
     <input readonly
           :class="inputClass"
@@ -69,7 +69,7 @@ export default {
     },
     width: {
       type: [String, Number],
-      default: 210
+      default: '210px'
     },
     placeholder: String,
     lang: {
