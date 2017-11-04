@@ -228,8 +228,8 @@ export default {
           break
       }
       if (
-          this.$parent.notBefore !== '' && cellTime < new Date(this.$parent.notBefore).getTime() ||
-          this.$parent.notAfter !== '' && cellTime > new Date(this.$parent.notAfter).getTime()
+          ((this.$parent.notBefore !== '' && cellTime) < new Date(this.$parent.notBefore).getTime()) ||
+          ((this.$parent.notAfter !== '' && cellTime) > new Date(this.$parent.notAfter).getTime())
         ) {
         return 'disabled'
       }
@@ -295,7 +295,7 @@ export default {
         if (this.value instanceof Date) {
           date.setHours(this.value.getHours(), this.value.getMinutes(), this.value.getSeconds())
         }
-        if (this.startAt && date.getTime() < new Date(this.startAt).getTime()){
+        if (this.startAt && date.getTime() < new Date(this.startAt).getTime()) {
           date = new Date(this.startAt)
         } else if (this.endAt && date.getTime() > new Date(this.endAt).getTime()) {
           date = new Date(this.endAt)
